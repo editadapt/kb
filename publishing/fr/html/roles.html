@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
-		<title>ARIA role Attribute</title>
+		<title>ARIA Attribut de rôle</title>
 		<script>
 			var page_info = {
 				'topic': 'HTML',
-				'description': 'Guidelines for the enhancing digital publications with ARIA roles, states and properties.',
+				'description': "Lignes directrices pour l'amélioration des publications numériques avec des rôles, des États et des propriétés d'Aria.",
 				'appliesTo': ['EPUB3']
 			};
 		</script>
@@ -15,46 +15,45 @@
 	<body>
 		<main>
 			<section id="summary">
-				<h3>Summary</h3>
+				<h3>Résumé</h3>
 
-				<p>Use the ARIA <code>role</code> attribute to provide more information about the structure of a
-					document for users of assistive technologies.</p>
-			</section>
+<p> Utilisez le rôle <code> ARIA </code> et ses Attributs pour fournir plus d'informations sur la structure d'un
+document lu et manipulé par des technologies d'assistance. </ P></section>
 
 			<section id="tech">
 				<h3>Techniques</h3>
 
 				<ul>
 					<li>
-						<p>Identify page regions. <span class="wcag-level">[<a
+						<p>Identifier les portions de page (<span lang="en"></span>page region</span>). <span class="wcag-level">[<a
 							href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG
 							1.3.1</a>]</span></p>
 						<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA11">Using ARIA landmarks to
-									identify regions of a page</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA13">Using aria-labelledby
-									to name regions and landmarks</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA11">En utilisant des repères Aria pour
+identifier les régions d'une page</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA13">En utilisant aria-labelledby pour
+nommer les régions et les repères</a></li>
 						</ul>
 					</li>
 				</ul>
 			</section>
 
 			<section id="ex">
-				<h3>Examples</h3>
+				<h3>Exemples</h3>
 
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Chapters</div>
+						<div class="label">Exemple 1 &#8212; Chapitres</div>
 					</figcaption>
 					<pre id="ex-01d-src" class="prettyprint linenums small"><code>&lt;section role="doc-chapter" aria-labelledby="hd03">
-   &lt;h2 id="hd03">1 - It begins&lt;/h2>
+   &lt;h2 id="hd03">1 - Cela commence&lt;/h2>
    &#8230;
 &lt;/section></code></pre>
 				</figure>
 
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Footnote and reference</div>
+						<div class="label">Exemple 2 &#8212; Note de bas de page et référence</div>
 					</figcaption>
 
 					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a role="doc-noteref" href="#fn01">1&lt;/a>&lt;/p>
@@ -65,14 +64,14 @@
 
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; Endnotes</div>
+						<div class="label">Exemple 3 &#8212; Notes de fin</div>
 					</figcaption>
 
 					<pre id="ex-01g-src" class="prettyprint linenums small"><code>&lt;section role="doc-endnotes" aria-labelledby="hd-notes">
-   &lt;h1 id="hd-notes">Endnotes&lt;/h1>
+   &lt;h1 id="hd-notes">Notes de fin&lt;/h1>
    
    &lt;section>
-     &lt;h2>Chapter 1&lt;/h2>
+     &lt;h2>Chapitre 1&lt;/h2>
      &lt;ol>
       &lt;li role="doc-endnote">&#8230;&lt;/li>
       &#8230;
@@ -84,12 +83,12 @@
 			</section>
 
 			<section id="desc">
-<h3>
+<!--<h3>
 Explication
 </h3>
 
 <p>
-L'une des limites de la grammaire de balisage HTML de base est qu'elle n'est pas bien adaptée à la différenciation des structures de publication courantes. Il peut y avoir des centaines d'éléments latéraux dans une publication, par exemple, mais il n'a pas été possible d'identifier de manière fiable ceux qui représentent les notes, les encadrés, les avertissements et les alertes.
+L'une des limites de la grammaire de balisage HTML de base est qu'elle n'est pas bien adaptée à la différenciation des structures de publication courantes. Il peut y avoir des centaines d'éléments latéraux (<code>Aside</code>) dans une publication, par exemple, mais il n'a pas été possible d'identifier de manière fiable ceux qui représentent les notes, les encadrés, les avertissements et les alertes.
 </p>
 
 <p>
@@ -154,37 +153,33 @@ Dois-je toujours étiqueter les points de repère ?
     Bien que les étiquettes ne soient pas requises pour les points de repère DPUB-ARIA, la prise en charge de ce vocabulaire n'est pas encore très répandue. L'ajout d'une étiquette garantit que les règles de traitement par défaut du HTML créeront un repère même si le vocabulaire n'est pas reconnu (c'est-à-dire que l'ajout d'une étiquette à un élément de section indique aux navigateurs de traiter la section comme une région implicite lors de la création de l'arbre d'accessibilité).
 </p>
 
+-->
 
+				<h3>Explication</h3>
 
-				<h3>Explanation</h3>
-
-				<p>A limitation of the core HTML markup grammar is that it is not well-suited for differentiating common
-					publishing structures. There may be hundreds of <code>aside</code> elements in a publication, for
-					example, but reliably identifying which ones represent notes from sidebars from warnings and alerts
-					has not been possible.</p>
-
-				<p>For sighted users, the deficiency this causes has been masked by the enhanced visual rendering that
-					CSS style sheets afford (backgrounds, borders and shading are used to convey roles visually). For
-					users of assistive technologies &#8212; which rely on an understanding of the underlying markup in
-					order to facilitate navigation &#8212; Web-based technologies have only had limited accessibility
-					because primary and secondary material was often indistinguishable below the visual surface.</p>
-
-				<p>To make publications more accessible, you need to consider that many users will be interacting with
-					the content in non-visual ways, and for that reason the <a href="order.html">logical reading
-						order</a> must be defined at the markup level. To facilitate this discovery, the ARIA
-						<code>role</code> attribute allows more precise meanings to be applied to the generic tags.</p>
-
-				<p>The ARIA specification defines many roles, but the majority are intended to aid in making scripted
-					HTML interfaces more accessible (see <a href="../script/aria.html">ARIA in the scripting section</a>
-					The core specification does contain a number of <a
-						href="https://www.w3.org/TR/wai-aria/#document_structure_roles">document structure roles</a> and
-						<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">landmark roles</a>, but these are
-					focused primarily on the layout of web pages. It is more common in publishing to use the roles
-					defined in the <a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA
-					modules</a>.</p>
-
-				<section>
-					<h4>EPUB 3</h4>
+				<p>
+					L'attribut ARIA <code>Role</code> fournit plus d'informations sur la structure d'un document lu et manipulé par des technologies d'assistance. 
+				</p>
+				<p>
+					ARIA est un jeu d'attributs interprétés par une majorité de technologie d'assistance pour permettre une meilleur identification de la structure et des fonctionalités d'une publication. 
+				</p>
+				<p>
+					HTML ne permet pas d'identifier sémantiquement des éléments importants de la structure d'un document contenants par exemple des notes, des encadrés, des avertissements ou les alertes.
+				</p>
+				<p>
+					Cette déficience est compensée par le rendu visuel (les fonds, les bordures et les ombres sont utilisés pour transmettre visuellement les rôles). Les utilisateurs non voyants utilisent des technologies d'assistance  qui s'appuient sur une compréhension du balisage sous-jacent afin de faciliter la navigation. Ils ne bénéficient que d'une accessibilité limitée, car le matériel primaire et secondaire est souvent indiscernable sous la surface visuelle.
+				</p>
+				<p>
+					Pour rendre les publications plus accessibles, il faut tenir compte du fait que de nombreux utilisateurs interagiront avec le contenu de manière non visuelle. Pour que cela fonctionne il faut que <a href="order.html">l'ordre de lecture logique</a> soit défini au niveau du balisage. Pour faciliter sa découverte, l'attribut ARIA role permet d'appliquer des significations plus précises aux balises génériques. 
+				</p>
+				<p> La spécification ARIA définit de nombreux rôles, mais la majorité visent à aider à faire en sorte que les scripts
+HTML des interface soient plus accessibles (voir <a href="../script/aria.html"> aria dans la section des scripts </a>
+La spécification centrale contient un certain nombre de <a
+href = "https://www.w3.org/tr/wai-aria/#document_structure_roles"> Rôles de structure de document </a> et
+<a href="https://www.w3.org/tr/wai-aria/#landmark_roles"> et de rôles de repère </a>, mais ce ils sont axés principalement sur la disposition des pages Web. Il est plus courant dans la publication d'utiliser les rôles
+défini dans le <a href="https://www.w3.org/TR/dpub-aria/">module de Publication numérique Wai-Aria</a>.</p>
+		<section>
+			<h4>EPUB 3</h4>
 
 					<p>The <a href="epub-type.html"><code>epub:type</code> attribute</a> was intended to serve a similar
 						function to the ARIA <code>role</code> attribute in EPUB 3, but accessibility support never

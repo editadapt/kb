@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ARIA role Attribute</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for the enhancing digital publications with ARIA roles, states and properties.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>Use the ARIA <code>role</code> attribute to provide more information about the structure of a
+					document for users of assistive technologies.</p>
+			</section>
+
+			<section id="tech">
+				<h3>Techniques</h3>
+
+				<ul>
+					<li>
+						<p>Identify page regions. <span class="wcag-level">[<a
+							href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG
+							1.3.1</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA11">Using ARIA landmarks to
+									identify regions of a page</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA13">Using aria-labelledby
+									to name regions and landmarks</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Chapters</div>
+					</figcaption>
+					<pre id="ex-01d-src" class="prettyprint linenums small"><code>&lt;section role="doc-chapter" aria-labelledby="hd03">
+   &lt;h2 id="hd03">1 - It begins&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Footnote and reference</div>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a role="doc-noteref" href="#fn01">1&lt;/a>&lt;/p>
+&lt;aside role="doc-footnote">
+   &#8230;
+&lt;/aside></code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Endnotes</div>
+					</figcaption>
+
+					<pre id="ex-01g-src" class="prettyprint linenums small"><code>&lt;section role="doc-endnotes" aria-labelledby="hd-notes">
+   &lt;h1 id="hd-notes">Endnotes&lt;/h1>
+   
+   &lt;section>
+     &lt;h2>Chapter 1&lt;/h2>
+     &lt;ol>
+      &lt;li role="doc-endnote">&#8230;&lt;/li>
+      &#8230;
+     &lt;/ol>
+   &lt;/section>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+<h3>
+Explication
+</h3>
+
+<p>
+L'une des limites de la grammaire de balisage HTML de base est qu'elle n'est pas bien adaptée à la différenciation des structures de publication courantes. Il peut y avoir des centaines d'éléments latéraux dans une publication, par exemple, mais il n'a pas été possible d'identifier de manière fiable ceux qui représentent les notes, les encadrés, les avertissements et les alertes.
+</p>
+
+<p>
+Pour les utilisateurs voyants, la déficience qui en résulte a été masquée par le rendu visuel amélioré que permettent les feuilles de style CSS (les fonds, les bordures et les ombres sont utilisés pour transmettre visuellement les rôles). Pour les utilisateurs de technologies d'assistance - qui s'appuient sur une compréhension du balisage sous-jacent afin de faciliter la navigation - les technologies basées sur le Web n'ont eu qu'une accessibilité limitée, car le matériel primaire et secondaire était souvent indiscernable sous la surface visuelle.
+</p>
+
+<p>
+Pour rendre les publications plus accessibles, il faut tenir compte du fait que de nombreux utilisateurs interagiront avec le contenu de manière non visuelle, et c'est pourquoi l'ordre de lecture logique doit être défini au niveau du balisage. Pour faciliter cette découverte, l'attribut role de l'ARIA permet d'appliquer des significations plus précises aux balises génériques.
+</p>
+
+<p>
+La spécification ARIA définit de nombreux rôles, mais la majorité d'entre eux sont destinés à faciliter l'accès aux interfaces HTML scriptées (voir ARIA dans la section sur les scripts). La spécification de base contient un certain nombre de rôles de structure de document et de rôles de repère, mais ils sont principalement axés sur la mise en page des pages Web. Dans le domaine de la publication, il est plus courant d'utiliser les rôles définis dans les modules WAI-ARIA pour la publication numérique.
+EPUB 3
+</p>
+
+<p>
+L'attribut epub:type devait remplir une fonction similaire à celle de l'attribut ARIA role dans EPUB 3, mais la prise en charge de l'accessibilité ne s'est jamais concrétisée. Cet attribut est utile pour activer certains comportements de l'agent utilisateur, tels que les notes de bas de page contextuelles, mais ne doit pas être utilisé dans l'espoir d'améliorer l'accessibilité des publications.
+</p>
+
+<p>
+Reportez-vous au EPUB Type to ARIA Role Authoring Guide pour obtenir une liste des mauvaises pratiques à éviter lors du passage de l'attribut epub:type à l'attribut ARIA role.
+EPUB 2
+</p>
+
+<p>
+Comme XHTML 1.0 a été publié avant ARIA 1.0, EPUB 2 ne prend pas en charge l'utilisation des attributs ARIA. L'inclusion de ces attributs entraînera des erreurs de validation.
+Questions fréquemment posées
+</p>
+
+<p>
+Dois-je ajouter un rôle de repère à chaque section ?
+</p>
+
+<p>
+    Non, les points de repère sont conçus pour permettre au lecteur de se déplacer rapidement vers les sections principales d'une publication, et non pour remplacer la table des matières.
+</p>
+
+<p>
+    Si le vocabulaire DPUB-ARIA n'inclut pas de rôle pour une section, tenez compte de l'impact sur la navigation avant de définir un nouveau point de repère avec un rôle de région. Les points de repère sont une liste plate de destinations, de sorte que surcharger la liste avec des sous-sections ne fera que créer de la confusion.
+L'ajout d'un aria-label ou d'un titre à une section sans titre crée-t-il un point de repère ?
+</p>
+
+<p>
+    Oui, il faut donc veiller à ne pas surcharger la liste des points de repère de cette manière. Lorsqu'un élément de section possède un label, il est traité comme si le rôle de région lui avait été appliqué, ce qui fait de la section un point de repère.
+</p>
+
+<p>
+    Si une section sans titre ne correspond pas à un rôle de point de repère existant, tel que doc-chapitre, considérez l'impact sur la navigation avant de l'étiqueter.
+Dois-je étiqueter chaque rôle ?
+</p>
+
+<p>
+    Non, la nécessité d'un étiquetage dépend de la nécessité d'un nom accessible pour le rôle. Pour déterminer si un nom accessible est nécessaire, consultez la définition du rôle dans la spécification DPUB-ARIA ou ARIA. Si le rôle ne comporte pas de champ "Nom accessible requis" dans sa liste de propriétés, vérifiez la superclasse du rôle (la valeur est héritée).
+Dois-je toujours étiqueter les points de repère ?
+</p>
+
+<p>
+    La meilleure pratique consiste à fournir une étiquette pour les points de repère en utilisant les attributs aria-labelledby (lorsqu'un titre est présent dans le texte) ou aria-label (lorsqu'une section n'a pas de titre explicite).
+</p>
+
+<p>
+    Bien que les étiquettes ne soient pas requises pour les points de repère DPUB-ARIA, la prise en charge de ce vocabulaire n'est pas encore très répandue. L'ajout d'une étiquette garantit que les règles de traitement par défaut du HTML créeront un repère même si le vocabulaire n'est pas reconnu (c'est-à-dire que l'ajout d'une étiquette à un élément de section indique aux navigateurs de traiter la section comme une région implicite lors de la création de l'arbre d'accessibilité).
+</p>
+
+
+
+				<h3>Explanation</h3>
+
+				<p>A limitation of the core HTML markup grammar is that it is not well-suited for differentiating common
+					publishing structures. There may be hundreds of <code>aside</code> elements in a publication, for
+					example, but reliably identifying which ones represent notes from sidebars from warnings and alerts
+					has not been possible.</p>
+
+				<p>For sighted users, the deficiency this causes has been masked by the enhanced visual rendering that
+					CSS style sheets afford (backgrounds, borders and shading are used to convey roles visually). For
+					users of assistive technologies &#8212; which rely on an understanding of the underlying markup in
+					order to facilitate navigation &#8212; Web-based technologies have only had limited accessibility
+					because primary and secondary material was often indistinguishable below the visual surface.</p>
+
+				<p>To make publications more accessible, you need to consider that many users will be interacting with
+					the content in non-visual ways, and for that reason the <a href="order.html">logical reading
+						order</a> must be defined at the markup level. To facilitate this discovery, the ARIA
+						<code>role</code> attribute allows more precise meanings to be applied to the generic tags.</p>
+
+				<p>The ARIA specification defines many roles, but the majority are intended to aid in making scripted
+					HTML interfaces more accessible (see <a href="../script/aria.html">ARIA in the scripting section</a>
+					The core specification does contain a number of <a
+						href="https://www.w3.org/TR/wai-aria/#document_structure_roles">document structure roles</a> and
+						<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">landmark roles</a>, but these are
+					focused primarily on the layout of web pages. It is more common in publishing to use the roles
+					defined in the <a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA
+					modules</a>.</p>
+
+				<section>
+					<h4>EPUB 3</h4>
+
+					<p>The <a href="epub-type.html"><code>epub:type</code> attribute</a> was intended to serve a similar
+						function to the ARIA <code>role</code> attribute in EPUB 3, but accessibility support never
+						materialized. The attribute is useful for enabling certain user agent behaviors, such as pop-up
+						footnotes, but should not be used with expectations of enhancing the accessibility of
+						publications.</p>
+
+					<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA
+							Role Authoring Guide</a> for a list of bad practices to avoid when switching from the
+							<code>epub:type</code> to the ARIA <code>role</code> attribute.</p>
+				</section>
+
+				<section>
+					<h4>EPUB 2</h4>
+
+					<p>As XHTML 1.0 was released before ARIA 1.0, EPUB 2 does not support the use of ARIA attributes.
+						Inclusion of the attributes will result in validation errors.</p>
+				</section>
+			</section>
+
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl>
+					<dt>Should I add a landmark role to every section?</dt>
+					<dd>
+						<p>No, landmarks are designed to allow the reader to quickly move to the primary sections of a
+							publication, not stand in as an alternative to the table of contents.</p>
+
+						<p>If the <a href="dpub-aria.html">DPUB-ARIA vocabulary</a> does not include a role for a
+							section, consider the impact on navigation before defining a new landmark with a <a
+								href="https://www.w3.org/TR/wai-aria/#region"><code>region</code> role</a>. Landmarks
+							are a flat list list of destinations so overloading the list with subsections will only
+							cause confusion.</p>
+					</dd>
+
+					<dt>Does adding <code>aria-label</code> or <code>title</code> to an untitled section create a
+						landmark?</dt>
+					<dd>
+						<p>Yes, so care needs to be taken not to overload the landmarks list in this way. When a
+								<code>section</code> element has a label, it is handled as though the <a
+								href="https://www.w3.org/TR/wai-aria/#region"><code>region</code> role</a> has been
+							applied to it, which makes the section a landmark.</p>
+						<p>If an untitled section does not map to an existing landmark role, such as
+								<code>doc-chapter</code>, consider the impact on navigation before labelling it.</p>
+					</dd>
+
+					<dt>Do I have to label every role?</dt>
+					<dd>
+						<p>No, whether a label is required depends on whether the role requires an accessible name. To
+							determine if an accessible name is required, see the role's definition in the <a
+								href="https://www.w3.org/TR/dpub-aria">DPUB-ARIA</a> or <a
+								href="https://www.w3.org/TR/wai-aria/#role_definitions">ARIA</a> specification. If the
+							role does not have an "Accessible name required" field in its list of properties, check the
+							role's superclass (the value is inherited).</p>
+					</dd>
+
+					<dt>Should I always label landmarks?</dt>
+					<dd>
+						<p>Best practice is to provide a label for landmarks using the <code>aria-labelledby</code>
+							(when a heading is present in the text) or <code>aria-label</code> attributes (when a
+							section does not have an explicit heading).</p>
+						<p>Although labels are not required for DPUB-ARIA landmarks, support for the vocabulary is also
+							not yet widespread. Adding a label ensures that default processing rules for HTML will
+							create a landmark even if the vocabulary is not recognized (i.e., adding a label to a
+								<code>section</code> element indicates to browsers to treat the section as an implied <a
+								href="https://www.w3.org/TR/wai-aria/#region"><code>region</code></a> when creating the
+							accessibility tree).</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA Module</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
